@@ -3,6 +3,7 @@ package com.codercampus.Assignment11.domain;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Transaction implements Serializable {
 	private static final long serialVersionUID = 5489045104890844953L;
@@ -55,5 +56,24 @@ public class Transaction implements Serializable {
 		return "Transaction [id=" + id + ", retailer=" + retailer + ", description=" + description + ", date=" + date
 				+ ", amount=" + amount + ", type=" + type + "]";
 	}
+	
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(date);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Transaction other = (Transaction) obj;
+		return Objects.equals(date, other.date);
+	}
+	
+	
 	
 }
