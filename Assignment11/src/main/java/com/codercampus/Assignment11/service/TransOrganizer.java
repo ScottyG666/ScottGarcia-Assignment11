@@ -13,6 +13,8 @@ public class TransOrganizer {
 	public List<Transaction> reorganizeByDate () {
 		
 		
+		
+		
 		return null;
 	}
 }
