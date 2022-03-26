@@ -21,8 +21,9 @@ public class TransRetrieval {
 	public Object findAll() {
 		List<Transaction> preOrganizedList =  transRepo.findAll() ;
 		
+		List<Transaction> postOrganizedList = tO.reorganizeByDate(preOrganizedList);
 		
-		return  preOrganizedList ;
+		return  postOrganizedList ;
 	}
 	
 	

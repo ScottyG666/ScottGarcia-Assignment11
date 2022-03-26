@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Transaction implements Serializable {
+public class Transaction implements Serializable , Comparable<Transaction>{
 	private static final long serialVersionUID = 5489045104890844953L;
 	
 	private Long id;
@@ -72,8 +72,14 @@ public class Transaction implements Serializable {
 			return false;
 		Transaction other = (Transaction) obj;
 		return Objects.equals(date, other.date);
+
+		
+	
+	
+}
+	@Override
+	public int compareTo(Transaction o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
-	
-	
-	
 }
