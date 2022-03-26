@@ -26,17 +26,24 @@
 
 			-->
 			<tr th:each="eachTransaction : ${transList}">
-				<td th:inline="text">[[${eachTransaction.id}]]</td>
+			<!--	<td th:inline="text">[[${eachTransaction.id}]]</td>-->
+				<td> <span th:inline="text">
+					[[${eachTransaction.id}]]
+				</span></td>
 				<td th:inline="text">[[${eachTransaction.date}]]</td>
 				<td th:inline="text">[[${eachTransaction.retailer}]]</td>
 				<!--if the transactions description is funds in, this cell will display
 						the "amount" variable of the transaction, otherwise is will
 						display zero-->
-				<td th:inline="text"></td>
+				<td  ><span th:inline="text" th:if="${eachTransaction.type == 'Funds In'}">
+					[[${eachTransaction.amount}]]
+				</span></td>
 				<!--if the transactions description is funds in, this cell will display
 						the "amount" variable of the transaction, otherwise is will
 						display zero-->
-				<td th:inline="text"></td>
+				<td ><span th:inline="text" th:if="${eachTransaction.type == 'Funds Out'}">
+					[[${eachTransaction.amount}]]
+				</span></td>
 
 			</tr>
 			
