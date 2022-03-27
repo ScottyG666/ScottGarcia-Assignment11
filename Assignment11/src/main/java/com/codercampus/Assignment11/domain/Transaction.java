@@ -79,7 +79,7 @@ public class Transaction implements Serializable , Comparable<Transaction>{
 }
 	@Override
 	public int compareTo(Transaction o) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return getDate().compareTo(o.getDate());
 	}
 }

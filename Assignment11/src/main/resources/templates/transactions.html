@@ -7,6 +7,7 @@
 		<h2>Transaction History</h2>
 		
 		<table>
+			<!-- this is the Header for the Table, designating the rows-->
 			<tr>
 				<th>ID</th>
 				<th>Date</th>
@@ -14,24 +15,17 @@
 				<th>Funds In</th>
 				<th>Funds Out</th>
 			</tr>
-			<!-- this is the original example for what the transactional history
-				will look like
-			<tr>
-				<td><a href="/transactions/50">50</a></td>
-				<td>2020-01-01T19:04:48</td>
-				<td>H-E-B Grocery</td>
-				<td></td>
-				<td>41.36</td>
-			</tr>
 
-			-->
+			<!--these are dynamic Table Rows that will populate with each transaction within the List inside the
+				 ModelMap under the Keyu transList-->
 			<tr th:each="eachTransaction : ${transList}">
-			<!--	<td th:inline="text">[[${eachTransaction.id}]]</td>-->
+			
+				<!-- This row populates -->
 				<td> <span th:inline="text">
 					[[${eachTransaction.id}]]
 				</span></td>
 				<td>
-					<span  th:inline="text"></span>>
+					<span  th:inline="text"></span>
 					[[${eachTransaction.date}]]
 					</span></td>
 				<td >
