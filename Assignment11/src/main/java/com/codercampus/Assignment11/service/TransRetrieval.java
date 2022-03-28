@@ -27,4 +27,10 @@ public class TransRetrieval {
 	}
 	
 	
+	public Transaction findById (Integer idForQuery) {
+		
+		return transRepo.findById(idForQuery );
+	}
+	
+	
 }

@@ -22,7 +22,9 @@
 			
 				<!-- This row populates -->
 				<td> <span th:inline="text">
+					<a th:href="@{/transactions/{transactionID}(transactionID=${eachTransaction.id})}">
 					[[${eachTransaction.id}]]
+					</a>
 				</span></td>
 				<td>
 					<span  th:inline="text"></span>
