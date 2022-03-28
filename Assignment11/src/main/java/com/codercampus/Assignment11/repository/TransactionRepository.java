@@ -46,7 +46,7 @@ public class TransactionRepository {
 	public Transaction findById(Long transactionID) {
 		
 		 Transaction trans = transactions.stream().filter(bullShit -> bullShit.getId() == transactionID)
-												  .collect(Collectors.toCollection(Transaction));
+												  .collect(Collectors.toCollection(null));
 		
 		return null;
 	}
