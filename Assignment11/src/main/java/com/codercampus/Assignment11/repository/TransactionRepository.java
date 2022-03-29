@@ -17,8 +17,6 @@ import com.codercampus.Assignment11.domain.Transaction;
 public class TransactionRepository {
 	private List<Transaction> transactions = new ArrayList<>(100);
 	
-	private Map<Long, Transaction> transactionsMap = new LinkedHashMap<>();
-	
 	public TransactionRepository () {
 		super();
 		populateData();
@@ -33,21 +31,25 @@ public class TransactionRepository {
 		try (FileInputStream fileInputStream = new FileInputStream("transactions.txt");
 			 ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);) {
 			this.transactions = (List<Transaction>) objectInputStream.readObject();
-			
-			
-//			this.transactions.stream().forEach(tranny -> this.transactionsMap.put(tranny.getId(), tranny));
-			
+
 		} catch (IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		} 
 		
 	}
 
-	public Transaction findById(Long transactionID) {
+	public Transaction findById(Long transId) {
 		
-		 Transaction trans = transactions.stream().filter(bullShit -> bullShit.getId() == transactionID)
-												  .collect(Collectors.toCollection(null));
 		
-		return null;
+		
+		Transaction searchedTransaction = null;
+		
+		for (Transaction tran: this.transactions) {
+			if (tran.getId() == transId) {
+				return tran;
+			}
+		}
+		
+		return searchedTransaction;
 	}
 }

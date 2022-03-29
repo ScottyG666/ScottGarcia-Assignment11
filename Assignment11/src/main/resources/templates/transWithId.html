@@ -1,0 +1,49 @@
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>
+        Transaction Information
+    </title>
+</head>
+
+<body>
+    <h2>Transaction Information</h2>
+
+
+<div>
+    <h2 th:inline="text">Transaction ID : [[${retrievedTransaction.id}]]</h2>
+</div>
+
+<div>
+    <span th:inline="text">
+        Date: [[${retrievedTransaction.date}]]
+    </span>
+
+
+</div>
+<div>
+    <span th:inline="text">
+        Amount: [[${retrievedTransaction.amount}]]
+    </span>
+
+
+</div>
+<div>
+    <span th:inline="text">
+        Description: [[${retrievedTransaction.description}]]
+    </span>
+
+
+</div>
+<div>
+    <span>
+        <a>
+            back
+        </a>
+    </span>
+</div>
+
+
+    
+</body>
+</html>

@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.codercampus.Assignment11.domain.Transaction;
 import com.codercampus.Assignment11.service.TransRetrieval;
 
 @Controller
@@ -24,13 +25,20 @@ public class TransHistoryControllers {
 	}
 	
 	
-	@GetMapping("/transactions/{transactionId}")
+	@GetMapping("/transactions/{transId}")
 	
-	public String getSpecificTransactionInformation (@PathVariable Integer transId ,ModelMap model) {
+	public String getSpecificTransactionInformation (@PathVariable Long transId ,ModelMap model) {
 		
 		
 		
-		return "";
+		Transaction retrievedTransaction = tR.findById(transId);
+		
+		model.put("retrievedTransaction", retrievedTransaction);
+		
+		return "transWithId";
 	}
+	
+	
+
 	
 }
