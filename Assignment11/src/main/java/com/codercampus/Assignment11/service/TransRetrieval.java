@@ -30,7 +30,7 @@ public class TransRetrieval {
 	public Transaction findById (Long transId) {
 		
 		Transaction returnedTransaction = transRepo.findById(transId);
-		
+		System.out.println(returnedTransaction);
 		return returnedTransaction;
 	}
 	

@@ -26,15 +26,10 @@ public class TransHistoryControllers {
 	
 	
 	@GetMapping("/transactions/{transId}")
-	
 	public String getSpecificTransactionInformation (@PathVariable Long transId ,ModelMap model) {
 		
 		
-		
-		Transaction retrievedTransaction = tR.findById(transId);
-		
-		model.put("retrievedTransaction", retrievedTransaction);
-		
+		model.put("retrievedTransaction", tR.findById(transId));
 		return "transWithId";
 	}
 	

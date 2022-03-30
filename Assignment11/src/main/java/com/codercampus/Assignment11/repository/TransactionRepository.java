@@ -40,16 +40,11 @@ public class TransactionRepository {
 
 	public Transaction findById(Long transId) {
 		
-		
-		
-		Transaction searchedTransaction = null;
-		
 		for (Transaction tran: this.transactions) {
 			if (tran.getId() == transId) {
 				return tran;
 			}
 		}
-		
-		return searchedTransaction;
+		return null;
 	}
 }
