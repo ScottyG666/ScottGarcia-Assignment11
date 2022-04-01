@@ -1,7 +1,5 @@
 package com.codercampus.Assignment11.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,23 +13,27 @@ public class TransRetrieval {
 	@Autowired
 	private TransactionRepository transRepo;
 	
+	
+	//i added an additional service to organize the incoming ArrayList of transactions to 
+	//reduce bloat in this class, and for future functionality
 	@Autowired
 	private TransOrganizer tO;
 
 	public Object findAll() {
-		List<Transaction> preOrganizedList =  transRepo.findAll() ;
-		
-		List<Transaction> postOrganizedList = tO.reorganizeByDate(preOrganizedList);
-		
-		return  postOrganizedList ;
+		return tO.reorganizeByDate(transRepo.findAll());
 	}
 	
 	
 	public Transaction findById (Long transId) {
-		
-		Transaction returnedTransaction = transRepo.findById(transId);
-		System.out.println(returnedTransaction);
-		return returnedTransaction;
+		//iterating through entire list of transactions from the repository and single 
+		//the Transaction with the matching ID, or Null if no ID matched
+		for (Transaction trans : transRepo.findAll()) {
+			if (trans.getId().equals(transId)) {
+				return trans;
+			}
+		}
+		 
+		return null;
 	}
 	
 	

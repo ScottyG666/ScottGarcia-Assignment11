@@ -57,26 +57,10 @@ public class Transaction implements Serializable , Comparable<Transaction>{
 				+ ", amount=" + amount + ", type=" + type + "]";
 	}
 	
-	
-	@Override
-	public int hashCode() {
-		return Objects.hash(date);
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Transaction other = (Transaction) obj;
-		return Objects.equals(date, other.date);
 
-		
-	
-	
-}
+	/*
+	 * this is the comparison for sorting an ArrayList of Transactins in ascending order by date
+	 */
 	@Override
 	public int compareTo(Transaction o) {
 		

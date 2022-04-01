@@ -4,10 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Repository;
 
@@ -37,14 +34,6 @@ public class TransactionRepository {
 		} 
 		
 	}
-
-	public Transaction findById(Long transId) {
-		
-		for (Transaction tran: this.transactions) {
-			if (tran.getId() == transId) {
-				return tran;
-			}
-		}
-		return null;
-	}
 }
+
+	

@@ -12,10 +12,7 @@ public class TransOrganizer {
 
 	
 	public List<Transaction> reorganizeByDate (List<Transaction> returnedListFromFile) {
-		
 		Collections.sort( returnedListFromFile);
-		
-		
 		return returnedListFromFile;
 	}
 }
